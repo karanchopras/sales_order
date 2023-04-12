@@ -4,6 +4,8 @@ steps:
     platform: 'CF'
     
   cloudFoundryDeploy:
+    cfdeployTool: 'mtaDeployPlugin'
+    cfdeployType: 'standard'
     cfOrg: "Camelot ITLab GmbH_Camelot ITLab GmbH CF"
     cfSpace: 'DEV'
     cfApiEndpoint: https://api.cf.eu10.hana.ondemand.com
