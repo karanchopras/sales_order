@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZVDM_C_SALESHDR_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="ZVDM_C_SALESType" sap:semantics="aggregate" sap:label="Consumption View" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesDocument" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sales Order Number" sap:quickinfo="Sales Order NO" sap:value-list="standard"/>
+                <Property Name="SalesDocumentItem" Type="Edm.String" MaxLength="6" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Sales Order Item Number" sap:quickinfo="Sales Order Item NO"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Material Number" sap:quickinfo="Material NO"/>
+                <Property Name="MaterialDescrption" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:label="Material Dec" sap:quickinfo="Material Descrption"/>
+                <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sales Orgnization" sap:quickinfo="Sales Org"/>
+                <Property Name="SalesDocType" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sales Doc Type" sap:quickinfo="Sales Document Type"/>
+                <Property Name="DChannel" Type="Edm.String" MaxLength="2" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Distribution Channel"/>
+                <Property Name="OrderQuantityUnit" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:label="Sales Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="TargetQuantityUnit" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:label="Target Quantity UoM" sap:semantics="unit-of-measure"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Document Currency" sap:quickinfo="SD Document Currency" sap:semantics="currency-code"/>
+                <Property Name="OrderQuantity" Type="Edm.Decimal" Precision="15" Scale="3" sap:aggregation-role="measure" sap:unit="OrderQuantityUnit" sap:label="Order Quantity" sap:quickinfo="Cumulative order quantity in sales units" sap:filterable="false"/>
+                <Property Name="TargetQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:aggregation-role="measure" sap:unit="TargetQuantityUnit" sap:label="Target Quantity" sap:quickinfo="Target Quantity in Sales Units" sap:filterable="false"/>
+                <Property Name="NetAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unit="TransactionCurrency" sap:label="Net Value" sap:quickinfo="Net Value of the Order Item in Document Currency" sap:filterable="false"/>
+                <NavigationProperty Name="to_vbak" Relationship="ZVDM_C_SALESHDR_CDS.assoc_058ED21C972A49648DA3C294D03DF11E" FromRole="FromRole_assoc_058ED21C972A49648DA3C294D03DF11E" ToRole="ToRole_assoc_058ED21C972A49648DA3C294D03DF11E"/>
+            </EntityType>
+            <EntityType Name="ZVDM_C_SALESHDRType" sap:label="Consumption View HDR" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesDocument"/>
+                </Key>
+                <Property Name="SalesDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales Order Number" sap:quickinfo="Sales Order NO"/>
+                <Property Name="SDDocumentCategory" Type="Edm.String" MaxLength="4" sap:label="SD Document Category"/>
+                <Property Name="SalesDocumentType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Document Type"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By" sap:quickinfo="Name of Person Responsible for Creating the Object"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created On" sap:quickinfo="Record Created On"/>
+                <Property Name="CreationTime" Type="Edm.Time" Precision="0" sap:label="Created At" sap:quickinfo="Time at Which Record Was Created"/>
+                <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Organization"/>
+                <Property Name="DistributionChannel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Distribution Channel"/>
+                <Property Name="OrganizationDivision" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Division"/>
+                <Property Name="SalesGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Sales Group"/>
+                <Property Name="SalesOffice" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Office"/>
+                <Property Name="SoldToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Sold-to Party"/>
+                <Property Name="TotalNetAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="TransactionCurrency" sap:label="Net Value" sap:quickinfo="Net Value of the Sales Order in Document Currency"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Document Currency" sap:quickinfo="SD Document Currency" sap:semantics="currency-code"/>
+                <Property Name="RequestedDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Requested Deliv.Date" sap:quickinfo="Requested Delivery Date"/>
+                <Property Name="ShippingCondition" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Shipping Conditions"/>
+                <Property Name="CompleteDeliveryIsDefined" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Complete Delivery" sap:quickinfo="Complete Delivery Defined for Each Sales Order?"/>
+                <Property Name="DeliveryBlockReason" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Delivery Block" sap:quickinfo="Delivery Block (Document Header)"/>
+                <Property Name="ReferenceSDDocument" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Reference Document" sap:quickinfo="Document Number of Reference Document"/>
+                <Property Name="ReferenceSDDocumentCategory" Type="Edm.String" MaxLength="4" sap:label="Preceding Doc.Categ." sap:quickinfo="Document Category of Preceding SD Document"/>
+                <Property Name="OverallSDProcessStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Overall Status" sap:quickinfo="Overall Processing Status (Header/All Items)"/>
+                <Property Name="OverallSDDocumentRejectionSts" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Rejection Status" sap:quickinfo="Rejection Status (All Items)"/>
+                <NavigationProperty Name="to_vbap" Relationship="ZVDM_C_SALESHDR_CDS.assoc_AFD8D8E9F71A52F1EFFE71BD361DCD9E" FromRole="FromRole_assoc_AFD8D8E9F71A52F1EFFE71BD361DCD9E" ToRole="ToRole_assoc_AFD8D8E9F71A52F1EFFE71BD361DCD9E"/>
+            </EntityType>
+            <EntityType Name="ZVDM_I_VBAKType" sap:label="Basic View VBAK" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesDocument"/>
+                </Key>
+                <Property Name="SalesDocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales Document"/>
+                <Property Name="SDDocumentCategory" Type="Edm.String" MaxLength="4" sap:label="SD Document Category"/>
+                <Property Name="SalesDocumentType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Document Type"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created By" sap:quickinfo="Name of Person Responsible for Creating the Object"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created On" sap:quickinfo="Record Created On"/>
+                <Property Name="CreationTime" Type="Edm.Time" Precision="0" sap:label="Created At" sap:quickinfo="Time at Which Record Was Created"/>
+                <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Organization"/>
+                <Property Name="DistributionChannel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Distribution Channel"/>
+                <Property Name="OrganizationDivision" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Division"/>
+                <Property Name="SalesGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Sales Group"/>
+                <Property Name="SalesOffice" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Office"/>
+                <Property Name="SoldToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Sold-to Party"/>
+                <Property Name="TotalNetAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="TransactionCurrency" sap:label="Net Value" sap:quickinfo="Net Value of the Sales Order in Document Currency"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Document Currency" sap:quickinfo="SD Document Currency" sap:semantics="currency-code"/>
+                <Property Name="RequestedDeliveryDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Requested Deliv.Date" sap:quickinfo="Requested Delivery Date"/>
+                <Property Name="ShippingCondition" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Shipping Conditions"/>
+                <Property Name="CompleteDeliveryIsDefined" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Complete Delivery" sap:quickinfo="Complete Delivery Defined for Each Sales Order?"/>
+                <Property Name="DeliveryBlockReason" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Delivery Block" sap:quickinfo="Delivery Block (Document Header)"/>
+                <Property Name="ReferenceSDDocument" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Reference Document" sap:quickinfo="Document Number of Reference Document"/>
+                <Property Name="ReferenceSDDocumentCategory" Type="Edm.String" MaxLength="4" sap:label="Preceding Doc.Categ." sap:quickinfo="Document Category of Preceding SD Document"/>
+                <Property Name="OverallSDProcessStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Overall Status" sap:quickinfo="Overall Processing Status (Header/All Items)"/>
+                <Property Name="OverallSDDocumentRejectionSts" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Rejection Status" sap:quickinfo="Rejection Status (All Items)"/>
+            </EntityType>
+            <Association Name="assoc_AFD8D8E9F71A52F1EFFE71BD361DCD9E" sap:content-version="1">
+                <End Type="ZVDM_C_SALESHDR_CDS.ZVDM_C_SALESHDRType" Multiplicity="1" Role="FromRole_assoc_AFD8D8E9F71A52F1EFFE71BD361DCD9E"/>
+                <End Type="ZVDM_C_SALESHDR_CDS.ZVDM_C_SALESType" Multiplicity="*" Role="ToRole_assoc_AFD8D8E9F71A52F1EFFE71BD361DCD9E"/>
+            </Association>
+            <Association Name="assoc_058ED21C972A49648DA3C294D03DF11E" sap:content-version="1">
+                <End Type="ZVDM_C_SALESHDR_CDS.ZVDM_C_SALESType" Multiplicity="1" Role="FromRole_assoc_058ED21C972A49648DA3C294D03DF11E"/>
+                <End Type="ZVDM_C_SALESHDR_CDS.ZVDM_I_VBAKType" Multiplicity="1" Role="ToRole_assoc_058ED21C972A49648DA3C294D03DF11E"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_058ED21C972A49648DA3C294D03DF11E">
+                        <PropertyRef Name="SalesDocument"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_058ED21C972A49648DA3C294D03DF11E">
+                        <PropertyRef Name="SalesDocument"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZVDM_C_SALESHDR_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZVDM_C_SALES" EntityType="ZVDM_C_SALESHDR_CDS.ZVDM_C_SALESType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZVDM_C_SALESHDR" EntityType="ZVDM_C_SALESHDR_CDS.ZVDM_C_SALESHDRType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZVDM_I_VBAK" EntityType="ZVDM_C_SALESHDR_CDS.ZVDM_I_VBAKType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_058ED21C972A49648DA3C294D03DF11E" Association="ZVDM_C_SALESHDR_CDS.assoc_058ED21C972A49648DA3C294D03DF11E" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZVDM_C_SALES" Role="FromRole_assoc_058ED21C972A49648DA3C294D03DF11E"/>
+                    <End EntitySet="ZVDM_I_VBAK" Role="ToRole_assoc_058ED21C972A49648DA3C294D03DF11E"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_AFD8D8E9F71A52F1EFFE71BD361DCD9E" Association="ZVDM_C_SALESHDR_CDS.assoc_AFD8D8E9F71A52F1EFFE71BD361DCD9E" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZVDM_C_SALESHDR" Role="FromRole_assoc_AFD8D8E9F71A52F1EFFE71BD361DCD9E"/>
+                    <End EntitySet="ZVDM_C_SALES" Role="ToRole_assoc_AFD8D8E9F71A52F1EFFE71BD361DCD9E"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="ZVDM_C_SALESHDR_CDS.ZVDM_C_SALESType/SalesDocument" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Basic View VBAK"/>
+                        <PropertyValue Property="CollectionPath" String="ZVDM_I_VBAK"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SalesDocument"/>
+                                    <PropertyValue Property="ValueListProperty" String="SalesDocument"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZVDM_C_SALESHDR_CDS.ZVDM_C_SALESHDR_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ZVDM_C_SALESHDR_CDS.ZVDM_C_SALESHDR_CDS_Entities/ZVDM_C_SALES" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>ID</PropertyPath>
+                                <PropertyPath>OrderQuantity</PropertyPath>
+                                <PropertyPath>TargetQuantity</PropertyPath>
+                                <PropertyPath>NetAmount</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_vbak"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>ID</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZVDM_C_SALESHDR_CDS.ZVDM_C_SALESHDR_CDS_Entities/ZVDM_C_SALESHDR" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_vbap"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZVDM_C_SALESHDR_CDS.ZVDM_C_SALESHDRType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>SalesDocument</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://saps4s.camelot-idpro.de:44300/sap/opu/odata/sap/ZVDM_C_SALESHDR_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://saps4s.camelot-idpro.de:44300/sap/opu/odata/sap/ZVDM_C_SALESHDR_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

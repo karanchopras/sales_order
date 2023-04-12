@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../../sap/zvdm_c_saleshdr_cds/$metadata">
+        <edmx:Include Namespace="ZVDM_C_SALESHDR_CDS" Alias="SAP"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="zvdm_c_saleshdr_cds_van.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="ZVDM_C_SALESHDR_CDS.ZVDM_C_SALESType/ID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZVDM_C_SALESHDR_CDS.ZVDM_C_SALESType">
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="General Info"/>
+                            <PropertyValue Property="ID" String="GeneralInfo"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="General Information"/>
+                                        <PropertyValue Property="ID" String="idIdentification"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+                                    </Record>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Material details"/>
+                                        <PropertyValue Property="ID" String="Matdetails"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Matdetails"/>
+                                    </Record>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Transaction details"/>
+                                        <PropertyValue Property="ID" String="Qtydetails"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Qtydetails"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Matdetails">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Material"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="MaterialDescrption"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Qtydetails">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="OrderQuantity"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="TargetQuantity"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="NetAmount"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="OrderItem"/>
+                        <PropertyValue Property="TypeNamePlural" String="Order Items"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Label" String="Order Item Detail"/>
+                                <PropertyValue Property="Value" Path="SalesDocument"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderQuantityUnit"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="TargetQuantityUnit"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesDocument"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesDocumentItem"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Material"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="MaterialDescrption"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrganization"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesDocType"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="DChannel"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderQuantity"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderQuantityUnit"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="TargetQuantity"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="TargetQuantityUnit"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="NetAmount"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="TransactionCurrency"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>SalesDocument</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZVDM_C_SALESHDR_CDS.ZVDM_C_SALESHDRType">
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="General Info"/>
+                            <PropertyValue Property="ID" String="GeneralInfo"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="General Information"/>
+                                        <PropertyValue Property="ID" String="FurtherData"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+                                    </Record>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Sales Group"/>
+                                        <PropertyValue Property="ID" String="Salesgroup"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Salesgroup"/>
+                                    </Record>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Additional Data"/>
+                                        <PropertyValue Property="ID" String="AddlnData"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#AddlnData"/>
+                                    </Record>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Admin Data"/>
+                                        <PropertyValue Property="ID" String="AdminData"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#AdminData"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Item Data"/>
+                            <PropertyValue Property="ID" String="ItemData"/>
+                            <PropertyValue Property="Target" AnnotationPath="to_vbap/@UI.LineItem"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="AddlnData">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="TotalNetAmount"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="RequestedDeliveryDate"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ShippingCondition"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="AdminData">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CreatedByUser"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CreationDate"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CreationTime"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Salesgroup">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="DistributionChannel"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="OrganizationDivision"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="SalesGroup"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Order"/>
+                        <PropertyValue Property="TypeNamePlural" String="Orders"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Label" String="Order"/>
+                                <PropertyValue Property="Value" Path="SalesDocument"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ReferenceSDDocument"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ReferenceSDDocumentCategory"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesDocument"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SDDocumentCategory"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesDocumentType"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrganization"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="DistributionChannel"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOffice"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="OverallSDProcessStatus"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CompleteDeliveryIsDefined"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>SalesDocument</PropertyPath>
+                        <PropertyPath>SDDocumentCategory</PropertyPath>
+                        <PropertyPath>SalesDocumentType</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
