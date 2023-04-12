@@ -18,6 +18,9 @@
         "mbt": "^0.2.8",
         "ui5-task-zipper": "^0.5.0"
     },
+   "engines": {
+        "node": "^16.18"
+    },  
     "scripts": {
         "start": "fiori run --open \"test/flpSandbox.html?sap-client=100&sap-ui-xx-viewCache=false#salesorder-tile\"",
         "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-client=100&sap-ui-xx-viewCache=false#salesorder-tile\"",

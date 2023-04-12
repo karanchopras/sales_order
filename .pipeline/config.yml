@@ -1,0 +1,12 @@
+
+steps:
+  mtaBuild:
+    platform: 'CF'
+    
+  cloudFoundryDeploy:
+    deployTool: 'mtaDeployPlugin'
+    deployType: 'standard'
+    cfOrg: "Camelot ITLab GmbH_Camelot ITLab GmbH CF"
+    cfSpace: 'DEV'
+    cfApiEndpoint: https://api.cf.eu10.hana.ondemand.com
+    cfCredentialsId: 'CF_Credentials_Camelot'
